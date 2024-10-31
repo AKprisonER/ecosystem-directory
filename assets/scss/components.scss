@@ -1,112 +1,75 @@
-// ///////////////////////////////////////////////////////////////////// Site Header
+// ///////////////////////////////////////////////////////////////// Site Header
 // -----------------------------------------------------------------------------
 #site-header {
-  background: $pinkBlueGradient; // Apply gradient to header
-  color: #ffffff;
-  padding: 1rem 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(to bottom, #FF5CAC, #4F76FF); // Updated to match gradient theme
 }
 
-// Header Navigation Links
 #header-navigation {
-  a {
-    color: #ffffff;
-    font-weight: 500;
-    transition: color 0.3s;
-    &:hover {
-      color: #FF5CAC; // Pink on hover for header links
-      text-decoration: underline;
-    }
+  &:before {
+    background: linear-gradient(to bottom, #FF5CAC, #4F76FF); // Updated gradient
+  }
+  .modal-background {
+    background: linear-gradient(to bottom, #FF5CAC, #4F76FF); // Updated gradient
   }
 }
 
-// /////////////////////////////////////////////////////////////////////// Buttons
-// -----------------------------------------------------------------------------
-.button {
-  background: $pinkBlueGradient; // Gradient background for buttons
-  color: #ffffff;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border: none;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-}
-
-// ///////////////////////////////////////////////////////////////////// Site Footer
-// -----------------------------------------------------------------------------
-#site-footer {
-  background: $pinkBlueGradient; // Gradient background for footer
-  color: #ffffff;
-  padding: 2rem;
-  a {
-    color: #FF5CAC;
-    &:hover {
-      color: #4F76FF; // Blue on hover for footer links
-      text-decoration: underline;
-    }
-  }
-}
-
-// Footer Copyright Section
-#site-footer .copyright {
-  font-size: 0.875rem;
-  color: #f1f3f2;
-}
-
-// /////////////////////////////////////////////////////////////////////// Cards
-// -----------------------------------------------------------------------------
-.card {
-  background: rgba(255, 255, 255, 0.1); // Semi-transparent overlay on gradient
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  &:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }
-}
-
-// ///////////////////////////////////////////////////////////////////// Chiclets
+// //////////////////////////////////////////////////////////////////// Chiclets
 // -----------------------------------------------------------------------------
 .chiclet-list {
   .chiclet {
-    background: $pinkBlueGradient; // Gradient for chiclets
-    color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.3s;
+    @include borderRadius_Medium;
+    color: $blackPearl;
     &:hover,
     &.active-button {
-      background: linear-gradient(135deg, #4F76FF, #FF5CAC); // Reverse gradient on hover/active
+      color: white;
+      background: linear-gradient(135deg, #FF5CAC, #4F76FF); // Added gradient on hover and active state
     }
   }
 }
 
-// ////////////////////////////////////////////////////////////// [Panel] Top
-.panel-top {
-  background: rgba(0, 0, 0, 0.3); // Semi-transparent overlay for contrast
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+// ///////////////////////////////////////////////////////////////// Site Footer
+// -----------------------------------------------------------------------------
+#site-footer {
+  background: linear-gradient(180deg, #FF5CAC, #4F76FF); // Updated gradient for footer
 }
 
-// ////////////////////////////////////////////////////////////// [Panel] Bottom
-#footer-navigation {
-  a {
-    color: #ffffff;
-    margin-right: 1.5rem;
-    &:hover {
-      color: #FF5CAC; // Pink on hover for footer navigation links
-      text-decoration: underline;
+#mailchimp-form {
+  input {
+    &[type="submit"] {
+      &:hover {
+        background-color: #66989A;
+      }
     }
   }
 }
 
+// ///////////////////////////////////////////////////////////////// Detail Page
+// -----------------------------------------------------------------------------
+.page-project {
+  .values {
+    .links {
+      a {
+        color: $highlight_Dark;
+      }
+    }
+  }
+}
+
+// /////////////////////////////////////////////////////////////// Showcase Page
+// -----------------------------------------------------------------------------
+#taxonomy-grid {
+  .taxonomy {
+    border-color: rgba($showcaseGray, 0.5);
+  }
+}
+
+// /////////////////////////////////////////////////////////////// Accessibility
+// -----------------------------------------------------------------------------
+.breadcrumb-link,
+.project-card,
+.pagination-controls .page-button,
+.pagination-controls .control-button,
+#site-footer a,
+.page-project .focus-visible {
+  @include borderRadius_Medium;
+}
