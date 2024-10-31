@@ -1,21 +1,29 @@
 // ////////////////////////////////////////////////////////////////////// Colors
 // -----------------------------------------------------------------------------
-$pinkBlueGradient: linear-gradient(135deg, #FF5CAC, #4F76FF); // Pink-blue gradient
-
-$blackPearl: #041727; // Dark blue/black for potential darker areas
+$blackPearl: #04192A; // Dark blue/black
 $tiber: #052437;  // Very dark matte blue/black
 $midnight: #021C36;  // Very dark blue/black
-$downy: #6BC4CE; // Light teal
-$paradiso: #3D8F96; // Regular teal
-$ming: #34797D; // Dark teal
+$downy: #6BC4CE; // Light Teal
+$paradiso: #3D8F96; // Regular Teal
+$ming: #34797D; // Dark Teal
 
 $blackHaze: #F1F3F2; // Very light gray
 $mercury: #E5E5E5; // Light gray
 $pumice: #D7D9D8; // Light medium gray
 $tundora: #494949; // Medium gray
 $codGray: #181818; // Dark gray
-$cerulean: #06B1E9; // Blue (used for standout links or special calls-to-action)
+$cerulean: #06B1E9; // Blue (used for outbound links)
 
-$white: #FFFFFF; // Pure white for high contrast on dark backgrounds
+$white: #FFFFFF;
 
-$showcaseGray: #A3A3A3; // Muted gray for background fills or borders
+$showcaseGray: #A3A3A3;
+
+// Gradient theme colors
+$gradientPink: #FF5CAC;
+$gradientBlue: #4F76FF;
+$gradientBackground: linear-gradient(135deg, $gradientPink, $gradientBlue); // Define gradient background color
+
+// Border colors based on new theme
+$border_Color_Light: $blackHaze;
+$border_Color_Medium: $mercury;
+$border_Color_Dark: $pumice;
