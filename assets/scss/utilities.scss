@@ -6,30 +6,30 @@
 // ////////////////////////////////////////////////////////////////////// Mixins
 // --------------------------------------------------------------------- Styling
 @mixin shadow1 {
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 4px 20px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(0, 0, 0, 0.3); // Darker shadow for depth
 }
 
 @mixin focus_BoxShadow_Small {
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(107, 196, 206, 0.5); // Teal focus color
 }
 
 @mixin focus_BoxShadow_Regular {
-  box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 5px rgba(107, 196, 206, 0.5);
 }
 
 @mixin focus_BoxShadow_Link {
-  box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 5px rgba(107, 196, 206, 0.5);
   border-radius: 0.125rem;
 }
 
 @mixin selection_Dark {
-  ::-moz-selection { background: $translucentWhite; color: black; }
-  ::selection { background: $translucentWhite; color: black; }
+  ::-moz-selection { background: rgba(255, 255, 255, 0.2); color: #e0e5ff; }
+  ::selection { background: rgba(255, 255, 255, 0.2); color: #e0e5ff; }
 }
 
 @mixin selection_Light {
-  ::-moz-selection { background: $translucentBlack; color: white; }
-  ::selection { background: $translucentBlack; color: white; }
+  ::-moz-selection { background: rgba(0, 0, 0, 0.3); color: #ffffff; }
+  ::selection { background: rgba(0, 0, 0, 0.3); color: #ffffff; }
 }
 
 @mixin selection_Invisible {
@@ -49,6 +49,7 @@
 	@include leading_Mini;
   font-weight: 700;
 	text-transform: uppercase;
+  color: #6bc4ce; // Teal color for subtitles
 }
 
 @mixin label {
@@ -56,28 +57,30 @@
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  color: #b3b3b3; // Light gray for labels
 }
 
 @mixin button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 0.75rem;
+  padding: 0 1rem;
   height: 2.5rem;
-  border-radius: 0.125rem;
-  background-color: $gray300;
+  border-radius: 0.5rem;
+  background-color: #3d8f96; // Teal button background
+  color: #ffffff;
+  font-weight: bold;
   white-space: nowrap;
-  cursor: no-drop;
-  &:focus {
-    border: 2px solid blue;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  &:hover {
+    background-color: #34797d; // Darker teal on hover
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
-  &:not(:disabled) {
-    @include shadow1;
-    background-color: $gray200;
-    cursor: pointer;
-    &:hover {
-      transform: scale(1.05);
-    }
+  &:focus {
+    outline: none;
+    @include focus_BoxShadow_Small;
   }
 }
 
