@@ -4,9 +4,9 @@
       <div class="grid-spaceBetween-noGutter">
         <div class="col-5_sm-12">
           <div class="flex-shrink lg:max-w-sm xl:max-w-xl mb-4 lg:mb-0">
-            <h2 class="heading">Stay informed</h2>
+            <h2 class="heading">Stay Informed</h2>
             <p class="subheading">
-              <a target="_blank" href="https://ipfs.fyi/newsletter">Sign up</a> for the IPFS newsletter for
+              <a target="_blank" href="https://ipfs.fyi/newsletter">Sign up</a> for the Ink Chain newsletter for
               the latest on releases, upcoming developments, community events, and more.
             </p>
           </div>
@@ -14,9 +14,9 @@
 
         <div class="col-5_sm-12" data-push-left="off-1_sm-0">
           <div class="project-add-inner">
-            <h2 class="heading">Add your project</h2>
+            <h2 class="heading">Add Your Project</h2>
             <div class="subheading">
-              Don't see your project here?
+              Don’t see your project here?
               <a href="https://airtable.com/shrjwvk9pAeAk0Ci7" target="_blank">Send it our way</a>.
             </div>
           </div>
@@ -66,65 +66,62 @@
 </template>
 
 <script>
-// ===================================================================== Imports
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
-// ====================================================================== Export
 export default {
   name: 'ShipyardSiteFooter',
-
   computed: {
     ...mapGetters({
       siteContent: 'global/siteContent',
       navigation: 'global/navigation'
     }),
-    pageData () {
-      const siteContent = this.siteContent
+    pageData() {
+      const siteContent = this.siteContent;
       if (siteContent.hasOwnProperty('general')) {
-        return siteContent.general.footer_content
+        return siteContent.general.footer_content;
       }
-      return false
+      return false;
     }
   },
-
   methods: {
-    getElementTag (string) {
+    getElementTag(string) {
       switch (string) {
         case 'text':
-          return 'span'
+          return 'span';
         case 'link':
-          return 'a'
+          return 'a';
         default:
-          return 'span'
+          return 'span';
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-// ///////////////////////////////////////////////////////////////////// General
+// General Styles
 #site-footer {
+  background: linear-gradient(180deg, #021C36, #041727); // Gradient background
+  color: #e0e5ff;
   padding: 4rem 0;
   @include small {
     padding: 2rem 0;
   }
 }
 
-::v-deep .subheading,
-::v-deep .copyright {
-  a {
-    text-decoration: underline transparent;
-    text-underline-offset: $underlineSpacing;
-    transition: text-decoration-color 250ms ease-out;
-    &:hover {
-      transition: text-decoration-color 250ms ease-in;
-      text-decoration-color: currentColor;
-    }
+// Link Hover Effects
+::v-deep .subheading a,
+::v-deep .copyright a {
+  text-decoration: underline transparent;
+  color: #6bc4ce;
+  transition: color 0.3s, text-decoration-color 0.3s;
+  &:hover {
+    color: #3d8f96;
+    text-decoration-color: currentColor;
   }
 }
 
-// ///////////////////////////////////////////////////////////////// [Panel] Top
+// Top Panel Styles
 .panel-top {
   margin-bottom: 4rem;
   @include small {
@@ -135,20 +132,19 @@ export default {
 .heading {
   font-size: 1.75rem;
   line-height: 1.2;
-  font-weight: 500;
-  letter-spacing: -0.01rem;
+  font-weight: 600;
+  color: #e0e5ff;
 }
 
 .subheading {
   margin-top: 0.5rem;
   margin-right: 0.5rem;
+  color: #b3b3b3;
 }
 
+// Mailchimp Form
 ::v-deep #mailchimp-form {
   margin-top: 1rem;
-  @include small {
-    margin-top: 1rem;
-  }
   .panel-top {
     display: flex;
     flex-direction: row;
@@ -164,57 +160,40 @@ export default {
     }
   }
   input {
-    &[type="email"],
-    &[type="submit"] {
-      @include borderRadius_Medium;
-    }
     &[type="email"] {
-      flex: 1;
       padding: 0.5rem;
       line-height: 1.5;
+      flex: 1;
+      @include borderRadius_Medium;
     }
     &[type="submit"] {
-      padding: 0 0.75rem;
-      margin-left: 1rem;
+      padding: 0 1rem;
       font-weight: 600;
-      transition: 250ms ease-out;
+      background: linear-gradient(90deg, #6bc4ce, #3d8f96); // Gradient button
+      color: #ffffff;
+      transition: background 0.3s, transform 0.3s;
       @include mini {
-        line-height: 1.5;
-        padding: 0.5rem;
-        margin-left: 0;
         margin-top: 0.5rem;
+        padding: 0.5rem;
       }
       &:hover {
-        transition: 250ms ease-in;
+        transform: scale(1.05); // Slight scale effect on hover
+        background: #34797d; // Darker teal on hover
       }
     }
   }
 }
 
-::v-deep .project-add-inner {
-  @include small {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-  }
-}
-
-// ////////////////////////////////////////////////////////////// [Panel] Bottom
+// Bottom Panel Styles
 #footer-navigation {
   margin-bottom: 2rem;
-  @include small {
-    margin-bottom: 0;
-  }
-  @include mini {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 1rem;
-  }
-}
-
-.navigation-link {
-  &:not(:last-child) {
+  a {
+    color: #e0e5ff;
     margin-right: 1.6875rem;
+    &:hover {
+      color: #6bc4ce;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -225,7 +204,8 @@ export default {
 }
 
 ::v-deep .copyright {
-  @include fontSize_Small;
+  color: #b3b3b3;
+  font-size: 0.875rem;
   svg {
     display: inline-block;
     vertical-align: middle;
