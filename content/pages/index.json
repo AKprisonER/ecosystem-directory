@@ -1,10 +1,10 @@
 {
   "seo": {
-    "title": "IPFS Ecosystem Directory",
-    "description": "Interactive IPFS ecosystem directory and showcase"
+    "title": "Ink Chain Ecosystem Explorer",
+    "description": "Discover Kraken's Ink Chain, an Ethereum Layer 2 solution designed for high-speed, secure transactions and advanced DeFi applications. "
   },
   "og": {
-    "site_name": "IPFS Ecosystem Directory",
+    "site_name": "Ink Chain Ecosystem Explorer",
     "url": "https://ecosystem.ipfs.tech/",
     "type": "website",
     "image": "https://ecosystem.ipfs.tech/images/open-graph.png"
@@ -20,7 +20,7 @@
         },
         {
           "type": "div",
-          "label": "Ecosystem directory"
+          "label": "Ecosystem Explorer"
         }
       ],
       "filters_view": [
@@ -48,7 +48,7 @@
         {
           "type": "a",
           "href": "/",
-          "label": "Ecosystem directory"
+          "label": "Ecosystem Explorer"
         },
         {
           "type": "div",
@@ -63,7 +63,7 @@
         "filters_applied_view": "Filtered results"
       },
       "subheading": {
-        "index_view": "Explore the world of entityTermPlural and products built on IPFS in this interactive showcase filterable by industry, tooling, and more.",
+        "index_view": "Discover Kraken's Ink Chain, an Ethereum Layer 2 solution designed for high-speed, secure transactions and advanced DeFi applications.",
         "filters_view": {
           "show_all": "Showing all entityTermPlural, no filters selected",
           "show_search": "Showing entityTermPlural matching"
@@ -72,11 +72,11 @@
     },
     "segment_slider": {
       "filter_toggle_button_text": "View All",
-      "mobile_chart_title": "Explore IPFS"
+      "mobile_chart_title": "Explore Ink Ecosystem"
     },
     "section_filter": {
       "heading": "All entityTermPlural",
-      "description": "Explore the entire IPFS ecosystem, or use the filters to drill down by factors like industry, focus area, and tooling.",
+      "description": "Explore the entire InkChain ecosystem, or use the filters to drill down by factors like industry, focus area, and tooling.",
       "results_empty_placeholder": "No results found that match the selected filters.",
       "filter_panel_toggle_button_label": "Filters",
       "sort_dropdown_label": "Sort by:",
