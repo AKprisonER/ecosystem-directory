@@ -5,15 +5,6 @@ $font_Primary: 'Inter', sans-serif, monospace;
 $font_Secondary: 'Montserrat', sans-serif, monospace;
 
 // ---------------------------------------------------------------------- Sizing
-// fontSize_Mini | 11pt
-// fontSize_Small | 14pt
-// fontSize_Regular | 16pt
-// fontSize_Medium | 18pt
-// fontSize_Large | 20pt
-// fontSize_ExtraLarge | 24pt
-// fontSize_ExtraMediumLarge | 28pt
-// fontSize_ExtraExtraLarge | 50pt
-
 $fontSize_Mini: 0.6875rem;
 $fontSize_Small: 0.875rem;
 $fontSize_Regular: 1rem;
@@ -23,21 +14,27 @@ $fontSize_ExtraLarge: 1.5rem;
 $fontSize_ExtraMediumLarge: 1.75rem;
 $fontSize_ExtraExtraLarge: 3.125rem;
 
-// ///////////////////////////////////////////////////////////////////// General
+// ///////////////////////////////////////////////////////////////////// Colors
 // -----------------------------------------------------------------------------
-// -------------------------------------------------------------------- Coloring
-$site_backgroundColor: linear-gradient(135deg, #FF5CAC, #4F76FF); // Site-wide gradient background
-$font_Color_Primary: $codGray;
-$font_Color_Secondary: $tundora;
+// Gradient Colors
+$gradient-start: #ff5b99; // Vibrant pink
+$gradient-end: #6a85ff;   // Cool blue
 
-$fill_Dark_Primary: $tiber;
-$fill_Dark_Secondary: $midnight;
-$fill_Light: $blackHaze;
+// Background and font colors
+$site_backgroundColor: $gradient-start;
+$font_Color_Primary: #ffffff; // White font for contrast against dark background
+$font_Color_Secondary: #e0e0e0; // Light gray font for less prominent text
 
-$highlight_Light: $downy;
-$highlight_Medium: $paradiso;
-$highlight_Dark: $ming;
+// Element Colors
+$highlight_Light: #ff9ad5; // Light pink for highlights
+$highlight_Medium: #6a85ff; // Light blue for secondary highlights
+$highlight_Dark: #3b3b98;   // Darker blue for depth
 
-$border_Color_Light: $blackHaze;
-$border_Color_Medium: $mercury;
-$border_Color_Dark: $pumice;
+// Border Colors
+$border_Color_Light: rgba(255, 255, 255, 0.3); // Light white for subtle borders
+$border_Color_Medium: rgba(255, 255, 255, 0.5); 
+$border_Color_Dark: rgba(0, 0, 0, 0.3);
+
+// ///////////////////////////////////////////////////////////////////// General
+// Background Gradient (used across main sections)
+$background_gradient: linear-gradient(135deg, $gradient-start 0%, $gradient-end 100%);
