@@ -26,18 +26,18 @@ $fontSize_ExtraExtraLarge: 3.125rem;
 // ///////////////////////////////////////////////////////////////////// General
 // -----------------------------------------------------------------------------
 // -------------------------------------------------------------------- Coloring
-$site_backgroundColor: #0b0f23; // Dark background for site
-$font_Color_Primary: #e0e5ff; // Light primary font color
-$font_Color_Secondary: #b3b3b3; // Lighter secondary font color
+$site_backgroundColor: linear-gradient(135deg, #FF5CAC, #4F76FF); // Site-wide gradient background
+$font_Color_Primary: $codGray;
+$font_Color_Secondary: $tundora;
 
-$fill_Dark_Primary: #041727; // Dark blue for primary fills
-$fill_Dark_Secondary: #1a1f36; // Darker blue for secondary fills
-$fill_Light: #e0e5ff; // Light color for highlights
+$fill_Dark_Primary: $tiber;
+$fill_Dark_Secondary: $midnight;
+$fill_Light: $blackHaze;
 
-$highlight_Light: #6bc4ce; // Teal color for light highlights
-$highlight_Medium: #3d8f96; // Medium teal for active elements
-$highlight_Dark: #34797d; // Dark teal for hover states
+$highlight_Light: $downy;
+$highlight_Medium: $paradiso;
+$highlight_Dark: $ming;
 
-$border_Color_Light: #e0e5ff; // Light border color for subtle dividers
-$border_Color_Medium: #b3b3b3; // Medium border color for body elements
-$border_Color_Dark: #1a1f36; // Dark border color for containers and cards
+$border_Color_Light: $blackHaze;
+$border_Color_Medium: $mercury;
+$border_Color_Dark: $pumice;
