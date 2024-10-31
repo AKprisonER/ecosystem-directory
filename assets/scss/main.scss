@@ -40,24 +40,24 @@ $fontAssetPath: '~static/fonts';
 // ///////////////////////////////////////////////////////////////////// General
 // -----------------------------------------------------------------------------
 html, body {
-  background-color: #0b0f23; // Dark background for a modern look
-  color: #e0e5ff; // Light text color for readability on dark backgrounds
+  background: $pinkBlueGradient; // Apply pink-blue gradient background
+  color: #ffffff; // White text color for readability on gradient background
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
 }
 
-// Default font settings
+// Default font settings for headings and body text
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif; // Use Montserrat for headings
-  color: #e0e5ff; // White text for headings
+  font-family: 'Montserrat', sans-serif; // Headings use Montserrat
+  color: #ffffff; // White text for headings
   margin: 0;
 }
 
 p, li, a {
   font-size: 1rem; // Base font size for body text
   line-height: 1.6;
-  color: #b3b3b3; // Lighter text color for improved readability
+  color: #f1f3f2; // Light text color for readability on gradient
 }
 
 button, input, select, textarea {
@@ -66,15 +66,15 @@ button, input, select, textarea {
 
 // Links
 a {
-  color: #6bc4ce; // Teal color for links
+  color: #FF5CAC; // Pink for default link color
   text-decoration: none;
   transition: color 0.3s;
   &:hover {
-    color: #34797d; // Darker teal on hover
+    color: #4F76FF; // Blue on hover for contrast and matching the gradient
     text-decoration: underline;
   }
 }
 
 // ////////////////////////////////////////////////////////////// [Post] Imports
 // -----------------------------------------------------------------------------
-@import 'components'; // Importing component styles for consistent theme
+@import 'components'; // Import component styles for theme consistency
