@@ -1,114 +1,112 @@
-// ///////////////////////////////////////////////////////////////// Site Header
+// ///////////////////////////////////////////////////////////////////// Site Header
 // -----------------------------------------------------------------------------
 #site-header {
-  background: $gradient_primary; // Apply primary gradient to header
+  background: $pinkBlueGradient; // Apply gradient to header
+  color: #ffffff;
+  padding: 1rem 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  padding: 1.5rem 0;
 }
 
+// Header Navigation Links
 #header-navigation {
   a {
-    color: #e0e5ff;
+    color: #ffffff;
     font-weight: 500;
     transition: color 0.3s;
     &:hover {
-      color: #6bc4ce;
+      color: #FF5CAC; // Pink on hover for header links
       text-decoration: underline;
     }
   }
 }
 
-// //////////////////////////////////////////////////////////////////// Chiclets
+// /////////////////////////////////////////////////////////////////////// Buttons
+// -----------------------------------------------------------------------------
+.button {
+  background: $pinkBlueGradient; // Gradient background for buttons
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// ///////////////////////////////////////////////////////////////////// Site Footer
+// -----------------------------------------------------------------------------
+#site-footer {
+  background: $pinkBlueGradient; // Gradient background for footer
+  color: #ffffff;
+  padding: 2rem;
+  a {
+    color: #FF5CAC;
+    &:hover {
+      color: #4F76FF; // Blue on hover for footer links
+      text-decoration: underline;
+    }
+  }
+}
+
+// Footer Copyright Section
+#site-footer .copyright {
+  font-size: 0.875rem;
+  color: #f1f3f2;
+}
+
+// /////////////////////////////////////////////////////////////////////// Cards
+// -----------------------------------------------------------------------------
+.card {
+  background: rgba(255, 255, 255, 0.1); // Semi-transparent overlay on gradient
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// ///////////////////////////////////////////////////////////////////// Chiclets
 // -----------------------------------------------------------------------------
 .chiclet-list {
   .chiclet {
-    @include borderRadius_Medium;
-    color: #1a1f36;
-    background: #e0e5ff;
-    padding: 0.5rem 1.2rem;
-    transition: background 0.3s, color 0.3s;
+    background: $pinkBlueGradient; // Gradient for chiclets
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s;
     &:hover,
     &.active-button {
-      color: #ffffff;
-      background: $gradient_accent; // Accent gradient on hover/active state
+      background: linear-gradient(135deg, #4F76FF, #FF5CAC); // Reverse gradient on hover/active
     }
   }
 }
 
-// ///////////////////////////////////////////////////////////////// Site Footer
-// -----------------------------------------------------------------------------
-#site-footer {
-  background: $gradient_footer; // Dark gradient for footer
-  color: #e0e5ff;
-  padding: 2rem 0;
+// ////////////////////////////////////////////////////////////// [Panel] Top
+.panel-top {
+  background: rgba(0, 0, 0, 0.3); // Semi-transparent overlay for contrast
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+// ////////////////////////////////////////////////////////////// [Panel] Bottom
+#footer-navigation {
   a {
-    color: #6bc4ce;
+    color: #ffffff;
+    margin-right: 1.5rem;
     &:hover {
-      color: #34797d;
+      color: #FF5CAC; // Pink on hover for footer navigation links
       text-decoration: underline;
     }
   }
 }
 
-#mailchimp-form {
-  input {
-    &[type="submit"] {
-      background: $gradient_accent; // Gradient button for submit
-      color: #0b0f23;
-      font-weight: bold;
-      border-radius: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      transition: background 0.3s;
-      &:hover {
-        background: #34797d;
-      }
-    }
-  }
-}
-
-// ///////////////////////////////////////////////////////////////// Detail Page
-// -----------------------------------------------------------------------------
-.page-project {
-  .values {
-    .links {
-      a {
-        color: #6bc4ce;
-        &:hover {
-          color: #e0e5ff;
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-}
-
-// /////////////////////////////////////////////////////////////// Showcase Page
-// -----------------------------------------------------------------------------
-#taxonomy-grid {
-  .taxonomy {
-    background: $gradient_secondary; // Apply secondary gradient to cards
-    border-radius: 0.5rem;
-    padding: 1.2rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-  }
-}
-
-// /////////////////////////////////////////////////////////////// Accessibility
-// -----------------------------------------------------------------------------
-.breadcrumb-link,
-.project-card,
-.pagination-controls .page-button,
-.pagination-controls .control-button,
-#site-footer a,
-.page-project .focus-visible {
-  @include borderRadius_Medium;
-  transition: box-shadow 0.3s, transform 0.3s;
-  &:hover {
-    box-shadow: 0 0 10px rgba(107, 196, 206, 0.4);
-    transform: scale(1.02);
-  }
-}
