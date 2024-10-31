@@ -1,21 +1,21 @@
 {
   "seo": {
     "title": "Ink Chain Ecosystem Explorer",
-    "description": "Explore the Ink Chain, an advanced Layer 2 Ethereum solution by Kraken, designed for secure, fast transactions and cutting-edge DeFi applications."
+    "description": "Discover Kraken's Ink Chain, an Ethereum Layer 2 solution designed for high-speed, secure transactions and advanced DeFi applications."
   },
   "og": {
     "site_name": "Ink Chain Ecosystem Explorer",
-    "url": "https://ecosystem.inkchain.com/",
+    "url": "https://ecosystem.ipfs.tech/",
     "type": "website",
-    "image": "https://ecosystem.inkchain.com/images/open-graph.png"
+    "image": "https://ecosystem.ipfs.tech/images/open-graph.png"
   },
-  "404_error_message": "Page Not Found",
+  "404_error_message": "Not Found",
   "page_content": {
     "breadcrumbs": {
       "index_view": [
         {
           "type": "a",
-          "href": "https://inkchain.com",
+          "href": "https://ipfs.tech",
           "label": "Home"
         },
         {
@@ -26,7 +26,7 @@
       "filters_view": [
         {
           "type": "a",
-          "href": "https://inkchain.com",
+          "href": "https://ipfs.tech",
           "label": "Home"
         },
         {
@@ -42,7 +42,7 @@
       "filters_applied_view": [
         {
           "type": "a",
-          "href": "https://inkchain.com",
+          "href": "https://ipfs.tech",
           "label": "Home"
         },
         {
@@ -58,15 +58,15 @@
     },
     "hero": {
       "heading": {
-        "index_view": "Explore the Ink Chain Ecosystem",
-        "filters_view": "Discover Projects",
+        "index_view": "Ecosystem Directory",
+        "filters_view": "All Projects",
         "filters_applied_view": "Filtered Results"
       },
       "subheading": {
-        "index_view": "Explore Kraken's Ink Chain: a Layer 2 solution for Ethereum, empowering secure and high-speed DeFi applications.",
+        "index_view": "Discover Kraken's Ink Chain, an Ethereum Layer 2 solution designed for high-speed, secure transactions and advanced DeFi applications.",
         "filters_view": {
           "show_all": "Showing all projects, no filters selected",
-          "show_search": "Showing projects matching"
+          "show_search": "Showing projects matching your criteria"
         }
       }
     },
@@ -75,12 +75,12 @@
       "mobile_chart_title": "Explore Ink Ecosystem"
     },
     "section_filter": {
-      "heading": "Explore All Projects",
-      "description": "Dive into the Ink Chain ecosystem and use filters to explore by industry, area, and tools.",
-      "results_empty_placeholder": "No results found for the selected filters.",
+      "heading": "All Projects",
+      "description": "Explore the entire Ink Chain ecosystem, or use the filters to refine your view by industry, focus area, and tools.",
+      "results_empty_placeholder": "No results found that match the selected filters.",
       "filter_panel_toggle_button_label": "Filters",
       "sort_dropdown_label": "Sort by:",
-      "results_per_page_dropdown_label": "Results per page:",
+      "results_per_page_dropdown_label": "Results per page: ",
       "filter_panel": {
         "heading": "All Filters",
         "clear_button_text": {
