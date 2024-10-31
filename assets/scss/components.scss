@@ -1,19 +1,19 @@
 // ///////////////////////////////////////////////////////////////// Site Header
 // -----------------------------------------------------------------------------
 #site-header {
-  background: linear-gradient(180deg, #0b0f23, #1a1f36);
+  background: $gradient_primary; // Apply primary gradient to header
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   padding: 1.5rem 0;
 }
 
 #header-navigation {
   a {
-    color: #e0e5ff; // Light blue-white links
+    color: #e0e5ff;
     font-weight: 500;
     transition: color 0.3s;
     &:hover {
-      color: #6bc4ce; // Teal hover color for interactivity
-      text-decoration: underline; // Subtle underline on hover
+      color: #6bc4ce;
+      text-decoration: underline;
     }
   }
 }
@@ -24,13 +24,13 @@
   .chiclet {
     @include borderRadius_Medium;
     color: #1a1f36;
-    background-color: #e0e5ff; // Light blue-gray background for chiclets
+    background: #e0e5ff;
     padding: 0.5rem 1.2rem;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
     &:hover,
     &.active-button {
       color: #ffffff;
-      background-color: #34797d; // Dark teal on hover/active
+      background: $gradient_accent; // Accent gradient on hover/active state
     }
   }
 }
@@ -38,14 +38,13 @@
 // ///////////////////////////////////////////////////////////////// Site Footer
 // -----------------------------------------------------------------------------
 #site-footer {
-  background: linear-gradient(180deg, #1a1f36, #0b0f23);
-  color: #e0e5ff; // Light text color for readability
+  background: $gradient_footer; // Dark gradient for footer
+  color: #e0e5ff;
   padding: 2rem 0;
   a {
-    color: #6bc4ce; // Teal link color in footer
-    transition: color 0.3s;
+    color: #6bc4ce;
     &:hover {
-      color: #34797d; // Darker teal on hover
+      color: #34797d;
       text-decoration: underline;
     }
   }
@@ -54,14 +53,14 @@
 #mailchimp-form {
   input {
     &[type="submit"] {
-      background-color: #6bc4ce;
-      color: #0b0f23; // Dark text for contrast
+      background: $gradient_accent; // Gradient button for submit
+      color: #0b0f23;
       font-weight: bold;
       border-radius: 0.5rem;
       padding: 0.6rem 1.2rem;
-      transition: background-color 0.3s;
+      transition: background 0.3s;
       &:hover {
-        background-color: #34797d; // Darker teal on hover
+        background: #34797d;
       }
     }
   }
@@ -74,7 +73,6 @@
     .links {
       a {
         color: #6bc4ce;
-        transition: color 0.3s;
         &:hover {
           color: #e0e5ff;
           text-decoration: underline;
@@ -88,14 +86,13 @@
 // -----------------------------------------------------------------------------
 #taxonomy-grid {
   .taxonomy {
-    border-color: rgba(255, 255, 255, 0.2);
-    background-color: #1a1f36; // Dark background for cards
+    background: $gradient_secondary; // Apply secondary gradient to cards
     border-radius: 0.5rem;
     padding: 1.2rem;
     transition: transform 0.3s, box-shadow 0.3s;
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); // Add shadow for depth
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
   }
 }
@@ -111,7 +108,7 @@
   @include borderRadius_Medium;
   transition: box-shadow 0.3s, transform 0.3s;
   &:hover {
-    box-shadow: 0 0 10px rgba(107, 196, 206, 0.4); // Teal glow on hover
-    transform: scale(1.02); // Slight scaling for interactive feedback
+    box-shadow: 0 0 10px rgba(107, 196, 206, 0.4);
+    transform: scale(1.02);
   }
 }
