@@ -5,7 +5,6 @@
     :class="headerNavigationClasses">
 
     <div class="grid-noGutter">
-
       <div :class="['modal-background', { 'show-background': navOpen, 'transition-out': modalClosing }]"></div>
 
       <div class="col">
@@ -35,11 +34,8 @@
                   class="navigation-link onhover-line focus-visible">
                   {{ link.label }}
                 </component>
-                <div
-                  v-show="link.links"
-                  class="navigation-dropdown">
-                  <Shipyard_NavigationDropdown
-                    :items="link">
+                <div v-show="link.links" class="navigation-dropdown">
+                  <Shipyard_NavigationDropdown :items="link">
                     <template #dropdown-icon>
                       <Shipyard_ChevronIcon />
                     </template>
@@ -55,27 +51,23 @@
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
 <script>
-// ===================================================================== Imports
-import { mapGetters } from 'vuex'
-import Throttle from 'lodash/throttle'
+import { mapGetters } from 'vuex';
+import Throttle from 'lodash/throttle';
 
-// =================================================================== Functions
 const checkScreenWidth = (instance) => {
   if (!window.matchMedia('(max-width: 768px)').matches && instance.navOpen) {
-    instance.toggleNav()
+    instance.toggleNav();
   }
-}
+};
 
-// ====================================================================== Export
 export default {
   name: 'ShipyardNavigation',
 
-  data () {
+  data() {
     return {
       navOpen: false,
       resize: false,
@@ -83,78 +75,82 @@ export default {
       modalClosing: false,
       scrollPosition: 0,
       showBackground: false,
-      forceNavigationVisible: true
-    }
+      forceNavigationVisible: true,
+    };
   },
 
   computed: {
     ...mapGetters({
       navigation: 'global/navigation',
-      filterPanelOpen: 'filters/filterPanelOpen'
+      filterPanelOpen: 'filters/filterPanelOpen',
     }),
-    headerNavigationClasses () {
-      const showBackground = this.showBackground
-      const forceVisible = this.forceNavigationVisible
-      let compiled = ''
-      if (forceVisible) { compiled += 'force-visible ' }
-      if (showBackground) { compiled += 'show-background ' }
-      return compiled
-    }
+    headerNavigationClasses() {
+      const showBackground = this.showBackground;
+      const forceVisible = this.forceNavigationVisible;
+      let compiled = '';
+      if (forceVisible) compiled += 'force-visible ';
+      if (showBackground) compiled += 'show-background ';
+      return compiled;
+    },
   },
 
   watch: {
-    scrollPosition (newVal, oldVal) {
-      const showBackground = this.showBackground
-      const forceVisible = this.forceNavigationVisible
-      // const scrollSpeed = this.$GetScrollSpeed(newVal)
+    scrollPosition(newVal, oldVal) {
+      const showBackground = this.showBackground;
+      const forceVisible = this.forceNavigationVisible;
+
       if (newVal === 0 && showBackground) {
-        this.showBackground = false
+        this.showBackground = false;
       } else if (newVal > 0 && !showBackground) {
-        this.showBackground = true
+        this.showBackground = true;
       }
-      // console.log(scrollSpeed)
+
       if (newVal === 0) {
-        this.forceNavigationVisible = true
+        this.forceNavigationVisible = true;
       } else if (newVal < oldVal && !forceVisible) {
-        this.forceNavigationVisible = true
+        this.forceNavigationVisible = true;
       } else if (newVal > 80 && newVal > oldVal && forceVisible) {
-        this.forceNavigationVisible = false
+        this.forceNavigationVisible = false;
       }
-    }
+    },
   },
 
-  mounted () {
-    this.resize = Throttle(() => { checkScreenWidth(this) }, 310)
-    this.scroll = () => { this.updateScrollPosition() }
-    window.addEventListener('resize', this.resize)
-    window.addEventListener('scroll', this.scroll)
-    this.updateScrollPosition()
+  mounted() {
+    this.resize = Throttle(() => {
+      checkScreenWidth(this);
+    }, 310);
+    this.scroll = () => {
+      this.updateScrollPosition();
+    };
+    window.addEventListener('resize', this.resize);
+    window.addEventListener('scroll', this.scroll);
+    this.updateScrollPosition();
   },
 
-  beforeDestroy () {
-    if (this.resize) { window.removeEventListener('resize', this.resize) }
-    if (this.scroll) { window.removeEventListener('scroll', this.scroll) }
+  beforeDestroy() {
+    if (this.resize) window.removeEventListener('resize', this.resize);
+    if (this.scroll) window.removeEventListener('scroll', this.scroll);
   },
 
   methods: {
-    toggleNav () {
+    toggleNav() {
       if (this.navOpen) {
-        this.modalClosing = true
+        this.modalClosing = true;
         setTimeout(() => {
-          this.modalClosing = false
-          document.body.classList.remove('no-scroll')
-          this.navOpen = !this.navOpen
-        }, 300)
+          this.modalClosing = false;
+          document.body.classList.remove('no-scroll');
+          this.navOpen = !this.navOpen;
+        }, 300);
       } else {
-        document.body.classList.add('no-scroll')
-        this.navOpen = !this.navOpen
+        document.body.classList.add('no-scroll');
+        this.navOpen = !this.navOpen;
       }
     },
-    updateScrollPosition () {
-      this.scrollPosition = window.scrollY
-    }
-  }
-}
+    updateScrollPosition() {
+      this.scrollPosition = window.scrollY;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -167,24 +163,13 @@ export default {
   height: $navigationHeight;
   z-index: 9999;
   transform: translateY(-$navigationHeight);
-  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, background 0.3s ease;
+  background: $pinkBlueGradient; // Apply gradient to header
   &.force-visible {
     transform: translateY(0);
   }
   &.show-background {
-    &:before {
-      opacity: 1;
-    }
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: 250ms ease-in-out;
+    background: $pinkBlueGradient; // Keep gradient background when scrolled
   }
 }
 
@@ -222,58 +207,22 @@ export default {
   }
 }
 
-.navigation {
-  max-width: 32rem; // ← requested interim solution
-  @include customMaxMQ (768px) { // ← requested interim solution
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: $navigationHeight;
-    left: 0;
-    width: 100vw;
-    max-width: none;
-    height: calc(100vh - 5rem);
-    z-index: 100;
-  }
-  &.modal-open {
-    display: flex;
-    animation: landing 300ms cubic-bezier(0.4, 0.0, 0.2, 1.0);
-  }
-}
-
-.links-container {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 2rem;
-  @include customMaxMQ (768px) { // ← requested interim solution
-    flex-direction: column;
-    justify-content: center;
-    align-items: unset;
-    margin-left: 5rem;
-  }
-}
-
+// Navigation link styling
 .navigation-link {
-  @include borderRadius_Medium;
-  @include customMaxMQ (768px) { // ← requested interim solution
-    align-self: start;
-    margin-bottom: 0.75rem;
-    font-size: 2.1875rem;
-    font-weight: 500;
-    line-height: 1.2;
-  }
-  &:not(:last-child) {
-    margin-right: 2rem;
+  color: #FF5CAC; // Pink color for links
+  font-weight: 500;
+  transition: color 0.3s;
+  &:hover {
+    color: #4F76FF; // Blue on hover
+    text-decoration: underline;
   }
 }
 
-// ////////////////////////////////////////////////////// Modal + Hamburger icon
+// Modal background for mobile navigation
 .modal-background {
   display: none;
-  @include customMaxMQ (768px) { // ← requested interim solution
+  background: rgba(0, 0, 0, 0.5); // Dark overlay for contrast on gradient
+  @include customMaxMQ(768px) {
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -283,19 +232,6 @@ export default {
   }
   &.show-background {
     display: inline;
-    animation: landing 300ms cubic-bezier(0.4, 0.0, 0.2, 1.0);
-  }
-}
-
-.social-icon-container {
-  display: none;
-  &.visible {
-    @include customMaxMQ (768px) { // ← requested interim solution
-      display: inline;
-      align-self: start;
-      margin: 2rem 0;
-      margin-left: 5rem;
-    }
   }
 }
 
@@ -305,53 +241,39 @@ export default {
   z-index: 1000;
   height: 14px;
   width: 2rem;
-  @include customMaxMQ (768px) { // ← requested interim solution
+  @include customMaxMQ(768px) {
     display: inline;
   }
-  &:before {
+  &:before,
+  &:after {
     content: '';
     position: absolute;
     width: 100%;
-    top: 0px;
-    border-top: 2px solid white;
-    transition: 300ms cubic-bezier(0.4, 0.0, 0.2, 1.0);
+    border-top: 2px solid #ffffff; // White color for hamburger lines
+    transition: transform 300ms cubic-bezier(0.4, 0.0, 0.2, 1.0);
+  }
+  &:before {
+    top: 0;
   }
   &:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    bottom: 2px;
-    border-top: 2px solid white;
-    transition: 300ms cubic-bezier(0.4, 0.0, 0.2, 1.0);
+    bottom: 0;
   }
-  &.close-icon {
-    &:before {
-      transform: rotate(45deg) translate(3px, 4px);
-    }
-    &:after {
-      transform: rotate(-45deg) translate(3px, -4px);
-    }
+  &.close-icon:before {
+    transform: rotate(45deg) translate(3px, 4px);
   }
-  &:hover {
-    cursor: pointer;
+  &.close-icon:after {
+    transform: rotate(-45deg) translate(3px, -4px);
   }
 }
 
-// ////////////////////////////////////////////////////////////////// Animations
-@keyframes landing {
-  from {
-    transform: scale(1.1);
-    opacity: 0.0;
+// Social icon container for mobile
+.social-icon-container {
+  display: none;
+  &.visible {
+    @include customMaxMQ(768px) {
+      display: inline;
+      margin: 2rem 0 0 5rem;
+    }
   }
-  to {
-    transform: scale(1.0);
-    opacity: 1.0;
-  }
-}
-
-.transition-out {
-  transition: 300ms cubic-bezier(0.4, 0.0, 0.2, 1.0);
-  transform: scale(1.1);
-  opacity: 0.0;
 }
 </style>
