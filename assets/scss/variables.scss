@@ -1,19 +1,19 @@
 // ////////////////////////////////////////////////////////////////////// Colors
 // -----------------------------------------------------------------------------
-$blackPearl: #04192A; // Dark blue/black
-$tiber: #052437;  // Very dark matte blue/black
-$midnight: #021C36;  // Very dark blue/black
-$downy: #6BC4CE; // Light Teal
-$paradiso: #3D8F96; // Regular Teal
-$ming: #34797D; // Dark Teal
+$blackPearl: #041727; // Dark blue for primary backgrounds
+$tiber: #052437;  // Very dark matte blue, suitable for secondary backgrounds
+$midnight: #021C36;  // Deep blue-black for header/footer or sections
+$downy: #6bc4ce; // Light teal, used for accents, links, and highlights
+$paradiso: #3d8f96; // Teal for buttons and active states
+$ming: #34797d; // Dark teal for hover states and focused elements
 
-$blackHaze: #F1F3F2; // Very light gray
-$mercury: #E5E5E5; // Light gray
-$pumice: #D7D9D8; // Light medium gray
-$tundora: #494949; // Medium gray
-$codGray: #181818; // Dark gray
-$cerulean: #06B1E9; // Blue (used for outbound links)
+$blackHaze: #e0e5ff; // Light blue-gray for text and light backgrounds
+$mercury: #b3b3b3; // Light gray for secondary text
+$pumice: #D7D9D8; // Medium gray for borders and subtle dividers
+$tundora: #494949; // Medium dark gray for muted elements
+$codGray: #181818; // Dark gray for text and elements on light backgrounds
+$cerulean: #06B1E9; // Bright blue for standout links or special calls-to-action
 
-$white: #FFFFFF;
+$white: #FFFFFF; // Pure white for text on dark backgrounds
 
-$showcaseGray: #A3A3A3;
+$showcaseGray: #A3A3A3; // Used for muted elements or background fills in cards
