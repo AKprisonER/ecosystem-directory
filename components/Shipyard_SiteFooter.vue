@@ -99,31 +99,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// General Styles
+// Footer Background and General Styles
 #site-footer {
-  background: linear-gradient(180deg, #021C36, #041727); // Gradient background
-  color: #e0e5ff;
-  padding: 4rem 0;
+  background: $pinkBlueGradient; // Apply gradient to footer background
+  color: #ffffff;
+  padding: 3rem 1rem;
   @include small {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
   }
 }
 
-// Link Hover Effects
-::v-deep .subheading a,
-::v-deep .copyright a {
-  text-decoration: underline transparent;
-  color: #6bc4ce;
-  transition: color 0.3s, text-decoration-color 0.3s;
-  &:hover {
-    color: #3d8f96;
-    text-decoration-color: currentColor;
-  }
-}
-
-// Top Panel Styles
+// Panel Top Styling
 .panel-top {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+  color: #ffffff;
   @include small {
     margin-bottom: 1rem;
   }
@@ -131,81 +120,44 @@ export default {
 
 .heading {
   font-size: 1.75rem;
-  line-height: 1.2;
   font-weight: 600;
-  color: #e0e5ff;
+  color: #ffffff; // White for headings
 }
 
 .subheading {
-  margin-top: 0.5rem;
-  margin-right: 0.5rem;
-  color: #b3b3b3;
-}
-
-// Mailchimp Form
-::v-deep #mailchimp-form {
-  margin-top: 1rem;
-  .panel-top {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 0.5rem;
-    @include mini {
-      flex-direction: column;
-      margin-bottom: 0.5rem;
-    }
-  }
-  .panel-bottom {
-    span {
-      padding-left: 0.25rem;
-    }
-  }
-  input {
-    &[type="email"] {
-      padding: 0.5rem;
-      line-height: 1.5;
-      flex: 1;
-      @include borderRadius_Medium;
-    }
-    &[type="submit"] {
-      padding: 0 1rem;
-      font-weight: 600;
-      background: linear-gradient(90deg, #6bc4ce, #3d8f96); // Gradient button
-      color: #ffffff;
-      transition: background 0.3s, transform 0.3s;
-      @include mini {
-        margin-top: 0.5rem;
-        padding: 0.5rem;
-      }
-      &:hover {
-        transform: scale(1.05); // Slight scale effect on hover
-        background: #34797d; // Darker teal on hover
-      }
-    }
-  }
-}
-
-// Bottom Panel Styles
-#footer-navigation {
-  margin-bottom: 2rem;
+  color: #f1f3f2; // Light text for subheadings on gradient
   a {
-    color: #e0e5ff;
-    margin-right: 1.6875rem;
+    color: #FF5CAC; // Pink for links in subheading
     &:hover {
-      color: #6bc4ce;
+      color: #4F76FF; // Blue on hover
+    }
+  }
+}
+
+// Footer Navigation Links
+#footer-navigation {
+  a {
+    color: #FF5CAC; // Pink for footer links
+    font-weight: 500;
+    transition: color 0.3s;
+    &:hover {
+      color: #4F76FF; // Blue on hover
       text-decoration: underline;
     }
   }
 }
 
+// Social Icons Container
 .social-icons-container {
   @include small {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
   }
 }
 
-::v-deep .copyright {
-  color: #b3b3b3;
+// Copyright Section
+.copyright {
   font-size: 0.875rem;
+  color: #f1f3f2; // Light color for copyright text
   svg {
     display: inline-block;
     vertical-align: middle;
