@@ -167,9 +167,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// General Styles for Slider
 #slider {
   margin: 0 $containerSingleColumn;
   overflow: hidden;
+  background: $pinkBlueGradient; // Apply gradient background to slider
+  padding: 1rem;
+  border-radius: 12px;
   @include medium {
     margin: 0;
   }
@@ -182,9 +186,6 @@ export default {
   box-sizing: border-box;
   position: relative;
   left: 0px;
-  background: linear-gradient(135deg, #041727, #062B3F); // Gradient background for cards
-  border-radius: 10px;
-  padding: 1rem;
 }
 
 #card-row-container {
@@ -195,16 +196,16 @@ export default {
   transition: left 300ms ease-in-out;
 }
 
+// Card Styling
 ::v-deep .project-card {
-  display: block;
-  padding-bottom: 0;
-  background: linear-gradient(135deg, #1A1F36, #041727); // Card background gradient
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1); // Semi-transparent on gradient
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
   transition: transform 0.3s, box-shadow 0.3s;
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -217,34 +218,23 @@ export default {
 
 #feature-range-slider {
   width: 100%;
-}
-
-// Input styles
-input {
-  &[type=range] {
-    height: 28px;
-    margin: 10px 0;
-    width: 100%;
-    position: absolute;
-    top: -1.5rem;
-    -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3); // Track color
+  border-radius: 4px;
+  outline: none;
+  &::-webkit-slider-thumb {
     appearance: none;
-    &::-webkit-slider-runnable-track {
-      height: 1px;
-      background-color: #b3b3b3;
-      border-radius: 10px;
-    }
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: 20px;
-      width: 20px;
-      background: linear-gradient(135deg, #6bc4ce, #3d8f96); // Gradient for slider thumb
-      border-radius: 50%;
-      cursor: pointer;
-    }
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $pinkBlueGradient; // Gradient thumb
+    cursor: pointer;
+    transition: background 0.3s;
   }
 }
 
+// Slider Line
 #slider-line {
   position: relative;
   display: block;
@@ -258,10 +248,10 @@ input {
     top: 50%;
     left: 0;
     width: 100%;
-    transform: translateY(-50);
-    border-radius: 10px;
+    transform: translateY(-50%);
     height: 1px;
-    background-color: $pumice;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
   }
 }
 
