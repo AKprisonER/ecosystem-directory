@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "IPFS Ecosystem Directory",
-    "description": "Interactive IPFS ecosystem directory and showcase."
+    "description": "Explore the vibrant IPFS ecosystem directory, showcasing innovative projects and solutions."
   },
   "og": {
     "site_name": "IPFS Ecosystem Directory",
@@ -72,8 +72,8 @@
     ]
   },
   "section_featured_slider": {
-    "heading": "Featured entityTermPlural",
-    "description": "Check out some new and notable additions to the IPFS ecosystem directory."
+    "heading": "Featured Projects",
+    "description": "Check out some new and notable additions to the vibrant IPFS ecosystem directory."
   },
   "footer_content": {
     "heading": "Stay informed",
@@ -183,7 +183,7 @@
         "type": "nuxt-link",
         "href": "/",
         "query": { "filters": "enabled" },
-        "label": "All entityTermPlural"
+        "label": "All Projects"
       }
     ],
     "message": "It looks like you're lost, let's",
