@@ -1,6 +1,5 @@
 <template>
   <div v-if="featured.length > 0" id="featured-projects-slider">
-
     <div id="slider">
       <div
         id="card-row-container"
@@ -11,12 +10,11 @@
           ref="cardRow"
           :class="{ sliding: animate }"
           :style="{ left: `${left}px`, width: slidingRowWidth }">
-
           <div
             v-for="(project, index) in featured"
             :key="index"
             :style="{ width: `${cardWidth}px` }"
-            class="click-wrapper"
+            class="click-wrapper project-card"
             @click="projectCardClicked(project)">
             <Shipyard_ProjectCard
               :title="project.name"
@@ -28,7 +26,6 @@
               :enable-image-alt="enableImageAlt"
               format="block-view" />
           </div>
-
         </div>
       </div>
     </div>
@@ -50,49 +47,40 @@
           :max="indices * indices + 1">
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-// ===================================================================== Imports
 import { mapGetters } from 'vuex'
 
-// =================================================================== Functions
 const handleFeatureSliderResize = (instance) => {
   const display = instance.display
   if (window.matchMedia('(max-width: 25.9375rem)').matches) {
-    if (display !== 1) { instance.display = 1 }
+    instance.display = 1
   } else if (window.matchMedia('(max-width: 40rem)').matches) {
-    if (display !== 2) { instance.display = 2 }
+    instance.display = 2
   } else if (window.matchMedia('(max-width: 53.125rem)').matches) {
-    if (display !== 3) { instance.display = 3 }
+    instance.display = 3
   } else {
-    if (display !== 4) { instance.display = 4 }
+    instance.display = 4
   }
-  if (instance.currentIndex > instance.indices) {
-    instance.currentIndex = instance.indices
-  }
-  const cardWidth = instance.$refs.cardRowContainer.clientWidth / instance.display
+  instance.currentIndex = Math.min(instance.currentIndex, instance.indices)
+  const cardWidth = (instance.$refs.cardRowContainer.clientWidth / instance.display) * 0.9
   instance.animate = false
   instance.cardWidth = cardWidth
-  instance.slidingRowWidth = cardWidth * instance.featured.length + 'px'
+  instance.slidingRowWidth = `${cardWidth * instance.featured.length}px`
   instance.setSliderPosition()
-
   instance.inputWidth = instance.$refs.sliderInput.getBoundingClientRect().width
 }
 
-// ====================================================================== Export
 export default {
   name: 'ShipyardFeaturedProjectsSlider',
-
   props: {
-    parent: { // name of parent page, used for Countly
+    parent: {
       type: String,
       required: true
     }
   },
-
   data () {
     return {
       currentIndex: 0,
@@ -106,7 +94,6 @@ export default {
       inputWidth: false
     }
   },
-
   computed: {
     ...mapGetters({
       projects: 'projects/projects',
@@ -129,7 +116,6 @@ export default {
       return Math.max(pos * (this.inputWidth - 48), 0)
     }
   },
-
   watch: {
     range (val) {
       this.animate = true
@@ -138,18 +124,15 @@ export default {
       this.setSliderPosition()
     }
   },
-
   mounted () {
     handleFeatureSliderResize(this)
     this.resize = () => { handleFeatureSliderResize(this) }
     window.addEventListener('resize', this.resize)
     this.$nextTick(() => { this.$emit('init') })
   },
-
   beforeDestroy () {
     if (this.resize) { window.removeEventListener('resize', this.resize) }
   },
-
   methods: {
     setSliderPosition () {
       this.left = (-1 * this.currentIndex) * this.cardWidth
@@ -180,13 +163,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// ///////////////////////////////////////////////////////////////////// General
 #slider {
   margin: 0 $containerSingleColumn;
   overflow: hidden;
-  @include medium {
-    margin: 0;
-  }
+  display: flex;
+  justify-content: center;
 }
 
 #card-row {
@@ -195,129 +176,48 @@ export default {
   align-items: flex-start;
   box-sizing: border-box;
   position: relative;
-  left: 0px;
 }
 
 #card-row-container {
   width: 100%;
 }
 
+.project-card {
+  display: block;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background: #ffffff;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
 .sliding {
   transition: left 300ms ease-in-out;
 }
 
-// /////////////////////////////////////////////////////////////////////// Cards
-::v-deep .project-card {
-  display: block;
-  padding-bottom: 0;
-  @include tiny {
-    padding: 0;
-    &:not(.list-view) {
-      .content {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
-
-// ///////////////////////////////////////////////////////////// Slider Controls
 #slider-controls {
   display: flex;
   justify-content: center;
-  margin: 1.5rem auto;
-}
-
-#feature-range-slider {
-  width: 100%;
-}
-
-// ////////////////////////////////////////////////////////////////////// Inputs
-@mixin thumb() {
-  height: 20px;
-  width: 50px;
-  cursor: pointer;
-  border-radius: 0px;
-  background-color: transparent;
-  border: 2px solid transparent;
-  border-radius: $borderRadius_Medium;
-}
-
-input {
-  &[type=range] {
-    height: 28px;
-    margin: 10px 0;
-    width: 100%;
-    z-index: 10000;
-    position: absolute;
-    top: -1.5rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    &::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 0px;
-      cursor: pointer;
-      animate: 0.2s;
-      border-radius: 20px;
-      background-color: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      margin-top: -9px;
-      @include thumb
-    }
-    &::-moz-range-track {
-      width: 100%;
-      height: 0px;
-      cursor: pointer;
-      animate: 0.2s;
-      border-radius: 20px;
-      background-color: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-    &::-moz-range-thumb {
-      @include thumb
-    }
-    &::-ms-track {
-      width: 100%;
-      height: 0px;
-      cursor: pointer;
-      background-color: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-    &::-ms-fill-upper {
-      border-radius: 20px;
-    }
-    &::-ms-thumb {
-      margin-top: 1px;
-      @include thumb
-    }
-  }
+  margin: 1rem auto;
 }
 
 #slider-line {
   position: relative;
   display: block;
   width: 40%;
-  @include tiny {
-    width: 75%;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    transform: translateY(-50);
-    border-radius: 10px;
-    height: 1px;
-    border: 1px solid $pumice;
-    background-color: $pumice;
-  }
+}
+
+input[type=range] {
+  height: 28px;
+  margin: 10px 0;
+  width: 100%;
+  appearance: none;
+  position: absolute;
+  top: -1.5rem;
 }
 
 .dummy-thumb {
@@ -326,25 +226,12 @@ input {
   transform: translateY(-50%);
   height: 21px;
   width: 53px;
-  top: calc(50% + 1px);
-  border: 2.5px solid #C6C8C7;
   border-radius: 6px;
-  .chevron-left,
-  .chevron-right {
-    position: relative;
-    top: -6px;
-    path {
-      stroke-width: 2;
-    }
-  }
-  .chevron-left {
-    transform: rotateZ(90deg) scale(0.65);
-    left: 3px;
-  }
-  .chevron-right {
-    transform: rotateZ(-90deg) scale(0.65);
-    left: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .chevron-left, .chevron-right {
+    transform: scale(0.8);
   }
 }
-
 </style>
