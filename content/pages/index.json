@@ -1,142 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover Kraken's Ink Chain, an Ethereum Layer 2 solution designed for high-speed, secure transactions and advanced DeFi applications.">
-  <title>Ink Chain Ecosystem Explorer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Root Variables */
-    :root {
-      --primary-bg: #0e0e10;
-      --accent-color: #4e5aff;
-      --secondary-accent: #7a7cff;
-      --text-color: #ffffff;
-      --muted-text: #b3b3b3;
+{
+  "seo": {
+    "title": "Ink Chain Ecosystem Explorer",
+    "description": "Discover Kraken's Ink Chain, an Ethereum Layer 2 solution designed for high-speed, secure transactions and advanced DeFi applications. "
+  },
+  "og": {
+    "site_name": "Ink Chain Ecosystem Explorer",
+    "url": "https://ecosystem.ipfs.tech/",
+    "type": "website",
+    "image": "https://ecosystem.ipfs.tech/images/open-graph.png"
+  },
+  "404_error_message": "Not Found",
+  "page_content": {
+    "breadcrumbs": {
+      "index_view": [
+        {
+          "type": "a",
+          "href": "https://ipfs.tech",
+          "label": "Home"
+        },
+        {
+          "type": "div",
+          "label": "Ecosystem Explorer"
+        }
+      ],
+      "filters_view": [
+        {
+          "type": "a",
+          "href": "https://ipfs.tech",
+          "label": "Home"
+        },
+        {
+          "type": "a",
+          "href": "/",
+          "label": "Ecosystem directory"
+        },
+        {
+          "type": "div",
+          "label": "All entityTermPlural"
+        }
+      ],
+      "filters_applied_view": [
+        {
+          "type": "a",
+          "href": "https://ipfs.tech",
+          "label": "Home"
+        },
+        {
+          "type": "a",
+          "href": "/",
+          "label": "Ecosystem Explorer"
+        },
+        {
+          "type": "div",
+          "label": "Filtered results"
+        }
+      ]
+    },
+    "hero": {
+      "heading": {
+        "index_view": "Ecosystem directory",
+        "filters_view": "All entityTermPlural",
+        "filters_applied_view": "Filtered results"
+      },
+      "subheading": {
+        "index_view": "Discover Kraken's Ink Chain, an Ethereum Layer 2 solution designed for high-speed, secure transactions and advanced DeFi applications.",
+        "filters_view": {
+          "show_all": "Showing all entityTermPlural, no filters selected",
+          "show_search": "Showing entityTermPlural matching"
+        }
+      }
+    },
+    "segment_slider": {
+      "filter_toggle_button_text": "View All",
+      "mobile_chart_title": "Explore Ink Ecosystem"
+    },
+    "section_filter": {
+      "heading": "All entityTermPlural",
+      "description": "Explore the entire InkChain ecosystem, or use the filters to drill down by factors like industry, focus area, and tooling.",
+      "results_empty_placeholder": "No results found that match the selected filters.",
+      "filter_panel_toggle_button_label": "Filters",
+      "sort_dropdown_label": "Sort by:",
+      "results_per_page_dropdown_label": "Results per page: ",
+      "filter_panel": {
+        "heading": "All Filters",
+        "clear_button_text": {
+          "before": "Clear",
+          "after": "Selected"
+        },
+        "submit_button_text": "Done"
+      }
     }
-
-    /* Global Styles */
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background-color: var(--primary-bg);
-      color: var(--text-color);
-      overflow-x: hidden;
-    }
-
-    /* Hero Section */
-    .hero-section {
-      background: radial-gradient(circle at top, #0e0e10, #1c1c1f);
-      padding: 5rem 0;
-      text-align: center;
-    }
-
-    .hero-heading {
-      font-size: 3rem;
-      color: var(--text-color);
-      text-shadow: 0px 0px 10px var(--accent-color), 0px 0px 20px var(--secondary-accent);
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .subheading {
-      color: var(--muted-text);
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    /* CTA Buttons */
-    .button {
-      padding: 0.8rem 1.6rem;
-      border-radius: 50px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      margin: 0.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .button-primary {
-      background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
-      color: var(--text-color);
-    }
-
-    .button-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 0px 10px var(--accent-color), 0px 0px 15px var(--secondary-accent);
-    }
-
-    .button-secondary {
-      background-color: #333333;
-      color: var(--text-color);
-    }
-
-    /* Card Styles */
-    .card-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      padding: 3rem 1rem;
-    }
-
-    .card {
-      background-color: #1c1c1f;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-      width: 280px;
-      text-align: center;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-
-    .card:hover {
-      box-shadow: 0px 8px 20px rgba(78, 90, 255, 0.4), 0px 0px 10px rgba(122, 124, 255, 0.5);
-      transform: translateY(-5px);
-    }
-
-    .card-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-description {
-      color: var(--muted-text);
-      font-size: 1rem;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Hero Section -->
-  <div class="hero-section">
-    <h1 class="hero-heading">Explore the Future of Ink Chain</h1>
-    <p class="subheading">The most powerful dApps, DeFi solutions, and tools on Kraken's Ink Chain, built on Ethereum Layer 2.</p>
-    <a href="/list-project" class="button button-primary">List Your Project</a>
-    <a href="/explore" class="button button-secondary">Explore</a>
-  </div>
-
-  <!-- Card Section -->
-  <div class="card-container">
-    <!-- Example Card 1 -->
-    <div class="card">
-      <h2 class="card-title">Real-Time Analytics</h2>
-      <p class="card-description">Stay updated with the latest insights and stats on Ink Chain's performance.</p>
-    </div>
-    
-    <!-- Example Card 2 -->
-    <div class="card">
-      <h2 class="card-title">High-Speed Transactions</h2>
-      <p class="card-description">Experience seamless, lightning-fast transactions on Kraken's Layer 2 network.</p>
-    </div>
-
-    <!-- Example Card 3 -->
-    <div class="card">
-      <h2 class="card-title">Secure DeFi Applications</h2>
-      <p class="card-description">Build and use decentralized finance applications with enhanced security.</p>
-    </div>
-  </div>
-
-</body>
-</html>
+  }
+}
