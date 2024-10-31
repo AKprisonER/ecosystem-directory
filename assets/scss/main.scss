@@ -40,41 +40,13 @@ $fontAssetPath: '~static/fonts';
 // ///////////////////////////////////////////////////////////////////// General
 // -----------------------------------------------------------------------------
 html, body {
-  background: $pinkBlueGradient; // Apply pink-blue gradient background
-  color: #ffffff; // White text color for readability on gradient background
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-// Default font settings for headings and body text
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif; // Headings use Montserrat
-  color: #ffffff; // White text for headings
-  margin: 0;
-}
-
-p, li, a {
-  font-size: 1rem; // Base font size for body text
-  line-height: 1.6;
-  color: #f1f3f2; // Light text color for readability on gradient
-}
-
-button, input, select, textarea {
-  font-family: 'Inter', sans-serif;
-}
-
-// Links
-a {
-  color: #FF5CAC; // Pink for default link color
-  text-decoration: none;
-  transition: color 0.3s;
-  &:hover {
-    color: #4F76FF; // Blue on hover for contrast and matching the gradient
-    text-decoration: underline;
-  }
+  background: linear-gradient(135deg, #FF5CAC, #4F76FF); // Added gradient background
+  color: $codGray;
 }
 
 // ////////////////////////////////////////////////////////////// [Post] Imports
 // -----------------------------------------------------------------------------
-@import 'components'; // Import component styles for theme consistency
+@import 'components';
+@import 'settings';
+@import 'utilities';
+@import 'variables';
