@@ -40,10 +40,41 @@ $fontAssetPath: '~static/fonts';
 // ///////////////////////////////////////////////////////////////////// General
 // -----------------------------------------------------------------------------
 html, body {
-  background-color: $blackHaze;
-  color: $codGray;
+  background-color: #0b0f23; // Dark background for a modern look
+  color: #e0e5ff; // Light text color for readability on dark backgrounds
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+// Default font settings
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; // Use Montserrat for headings
+  color: #e0e5ff; // White text for headings
+  margin: 0;
+}
+
+p, li, a {
+  font-size: 1rem; // Base font size for body text
+  line-height: 1.6;
+  color: #b3b3b3; // Lighter text color for improved readability
+}
+
+button, input, select, textarea {
+  font-family: 'Inter', sans-serif;
+}
+
+// Links
+a {
+  color: #6bc4ce; // Teal color for links
+  text-decoration: none;
+  transition: color 0.3s;
+  &:hover {
+    color: #34797d; // Darker teal on hover
+    text-decoration: underline;
+  }
 }
 
 // ////////////////////////////////////////////////////////////// [Post] Imports
 // -----------------------------------------------------------------------------
-@import 'components';
+@import 'components'; // Importing component styles for consistent theme
