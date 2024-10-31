@@ -1,24 +1,21 @@
 // ////////////////////////////////////////////////////////////////////// Colors
 // -----------------------------------------------------------------------------
-$gradient_primary: linear-gradient(135deg, #041727, #062B3F); // Dark blue gradient for primary backgrounds
-$gradient_secondary: linear-gradient(135deg, #052437, #021C36); // Secondary background gradient
-$gradient_accent: linear-gradient(90deg, #6bc4ce, #3d8f96); // Teal accent gradient for buttons and links
-$gradient_footer: linear-gradient(180deg, #021C36, #041727); // Footer gradient with a dark fade
+$pinkBlueGradient: linear-gradient(135deg, #FF5CAC, #4F76FF); // Pink-blue gradient
 
-$blackPearl: #041727; 
-$tiber: #052437;
-$midnight: #021C36;  
-$downy: #6bc4ce; 
-$paradiso: #3d8f96; 
-$ming: #34797d;
+$blackPearl: #041727; // Dark blue/black for potential darker areas
+$tiber: #052437;  // Very dark matte blue/black
+$midnight: #021C36;  // Very dark blue/black
+$downy: #6BC4CE; // Light teal
+$paradiso: #3D8F96; // Regular teal
+$ming: #34797D; // Dark teal
 
-$blackHaze: #e0e5ff;
-$mercury: #b3b3b3;
-$pumice: #D7D9D8;
-$tundora: #494949;
-$codGray: #181818;
-$cerulean: #06B1E9;
+$blackHaze: #F1F3F2; // Very light gray
+$mercury: #E5E5E5; // Light gray
+$pumice: #D7D9D8; // Light medium gray
+$tundora: #494949; // Medium gray
+$codGray: #181818; // Dark gray
+$cerulean: #06B1E9; // Blue (used for standout links or special calls-to-action)
 
-$white: #FFFFFF;
+$white: #FFFFFF; // Pure white for high contrast on dark backgrounds
 
-$showcaseGray: #A3A3A3;
+$showcaseGray: #A3A3A3; // Muted gray for background fills or borders
