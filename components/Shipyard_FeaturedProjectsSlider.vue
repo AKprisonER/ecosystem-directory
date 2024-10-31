@@ -65,7 +65,7 @@ const handleFeatureSliderResize = (instance) => {
     instance.display = 4
   }
   instance.currentIndex = Math.min(instance.currentIndex, instance.indices)
-  const cardWidth = (instance.$refs.cardRowContainer.clientWidth / instance.display) * 0.9
+  const cardWidth = (instance.$refs.cardRowContainer.clientWidth / instance.display) * 0.85; // Decreased width to fit more cards
   instance.animate = false
   instance.cardWidth = cardWidth
   instance.slidingRowWidth = `${cardWidth * instance.featured.length}px`
@@ -163,8 +163,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#featured-projects-slider {
+  padding: 0 1rem; // Adds padding to prevent clipping
+}
+
 #slider {
-  margin: 0 $containerSingleColumn;
+  margin: 0 auto;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -176,6 +180,7 @@ export default {
   align-items: flex-start;
   box-sizing: border-box;
   position: relative;
+  transition: left 300ms ease; // Smooth scrolling
 }
 
 #card-row-container {
@@ -205,19 +210,46 @@ export default {
   margin: 1rem auto;
 }
 
+#feature-range-slider {
+  width: 100%;
+  appearance: none;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+}
+
 #slider-line {
   position: relative;
   display: block;
   width: 40%;
-}
-
-input[type=range] {
-  height: 28px;
-  margin: 10px 0;
-  width: 100%;
-  appearance: none;
-  position: absolute;
-  top: -1.5rem;
+  margin-top: 1rem;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    height: 1px;
+    background-color: #e0e0e0;
+  }
 }
 
 .dummy-thumb {
